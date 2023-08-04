@@ -24,5 +24,7 @@ export const defaultLoader = ({ src, width, quality }: _NextImage.ImageLoaderPro
     );
   }
 
-  return `${src}?w=${width}&q=${quality ?? 75}`;
+  const paramSeparator = src.includes('?') ? '&' : '?';
+
+  return `${src}${paramSeparator}w=${width}&q=${quality ?? 75}`;
 };
